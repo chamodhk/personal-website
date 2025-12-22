@@ -43,7 +43,7 @@ class Project(models.Model):
 class Article(models.Model):
     name = models.CharField(max_length=150)
     subtitle = models.CharField(max_length=50)
-    date = models.DateField(auto_now_add=True)
+    date = models.DateField(auto_now=True)
     body = models.TextField()
     medium_link = models.URLField(blank=True)
     github_link = models.URLField()
@@ -51,3 +51,20 @@ class Article(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+
+class SiteSettings(models.Model):
+    first_name = models.CharField(max_length=20)
+    middle_name = models.CharField(max_length=20)
+    last_name = models.CharField(max_length=20)
+    title = models.CharField(max_length=100, blank=True)
+    email = models.EmailField()
+
+    subtitle = models.CharField(max_length=100, blank=True)
+    description = models.CharField(max_length=300, blank=True)
+    last_update = models.DateField(auto_now=True)
+
+    def __str__(self) -> str:
+        return "Site Settings"
+
