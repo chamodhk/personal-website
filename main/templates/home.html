@@ -1,47 +1,8 @@
-<!DOCTYPE html>
-<html lang="en" class="dark">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ settings.title }}</title>
+{% block title %} {{settings.middle_name}} {{settings.last_name}} {% endblock %}
 
-    {% load static %}
-    <link href="{% static 'css/output.css' %}" rel="stylesheet">
-</head>
-
-<body class="bg-white text-black dark:bg-neutral-900 dark:text-neutral-100 font-sans">
-
-<div class="min-h-screen flex flex-col">
-
-    <!-- NAVBAR -->
-    <nav class="py-3 border-b border-neutral-300 dark:border-neutral-700 shadow-sm dark:shadow-neutral-900/20">
-        <div class="max-w-5xl mx-auto px-6 flex items-center justify-between">
-
-            <a href="/" class="text-lg font-mono font-semibold text-blue-700 dark:text-blue-300">
-                {{ settings.middle_name }} {{ settings.last_name }}
-            </a>
-
-            <div class="flex items-center gap-5 text-neutral-700 dark:text-neutral-300 text-sm font-medium">
-                <a href="/" class="hover:text-blue-600 dark:hover:text-blue-400">Home</a>
-                <a href="/articles/" class="hover:text-blue-600 dark:hover:text-blue-400">Articles</a>
-                <a href="/projects/" class="hover:text-blue-600 dark:hover:text-blue-400">Projects</a>
-                <a href="/contact/" class="hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
-
-                <button id="theme-toggle"
-                    class="px-2 py-1 rounded border bg-gray-200 text-black border-gray-400
-                    hover:bg-gray-300 transition
-                    dark:bg-neutral-800 dark:text-neutral-100 dark:border-neutral-600 dark:hover:bg-neutral-700">
-                    Theme
-                </button>
-            </div>
-
-        </div>
-    </nav>
-
-
-    <!-- MAIN CONTENT -->
-    <main class="flex-1 max-w-5xl mx-auto w-full px-6">
+{% block content %}
 
         <!-- HERO (taller) -->
         <section class="text-center pt-16 pb-10">
@@ -138,32 +99,5 @@
 
         </section>
 
-    </main>
+{% endblock %}
 
-
-    <!-- FOOTER -->
-    <footer class="py-3 border-t border-neutral-300 dark:border-neutral-700 text-center text-xs text-neutral-600 dark:text-neutral-400">
-        <p>© {{ settings.first_name }} {{ settings.middle_name }} {{ settings.last_name }}</p>
-        <p class="text-neutral-500">Updated {{ settings.last_update }}</p>
-    </footer>
-</div>
-
-<script>
-    const html = document.documentElement;
-    const storedTheme = localStorage.getItem("theme");
-
-    if (storedTheme === "light") html.classList.remove("dark");
-
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (html.classList.contains("dark")) {
-            html.classList.remove("dark");
-            localStorage.setItem("theme", "light");
-        } else {
-            html.classList.add("dark");
-            localStorage.setItem("theme", "dark");
-        }
-    });
-</script>
-
-</body>
-</html>

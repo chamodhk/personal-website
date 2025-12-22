@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ settings.title }}{% endblock %}</title>
+
+    {% load static %}
+    <link href="{% static 'css/output.css' %}" rel="stylesheet">
+
+    {% block head %}{% endblock %}
+</head>
+<body class="bg-white text-black dark:bg-neutral-900 dark:text-neutral-100 font-sans">
+
+<div class="min-h-screen flex flex-col">
+
+    <!-- NAVBAR -->
+    {% include 'partials/navbar.html' %}
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-1 max-w-5xl mx-auto w-full px-6">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- FOOTER -->
+    {% include 'partials/footer.html' %}
+
+</div>
+
+<!-- THEME SCRIPT -->
+<script>
+    const html = document.documentElement;
+    const storedTheme = localStorage.getItem("theme");
+
+    if (storedTheme === "light") html.classList.remove("dark");
+
+    const toggle = document.getElementById("theme-toggle");
+    if (toggle) {
+        toggle.addEventListener("click", () => {
+            if (html.classList.contains("dark")) {
+                html.classList.remove("dark");
+                localStorage.setItem("theme", "light");
+            } else {
+                html.classList.add("dark");
+                localStorage.setItem("theme", "dark");
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

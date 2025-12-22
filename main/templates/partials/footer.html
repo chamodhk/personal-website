@@ -1,0 +1,8 @@
+<footer class="py-3 border-t border-neutral-300 dark:border-neutral-700 text-center text-xs text-neutral-600 dark:text-neutral-400">
+    <p>© {{ settings.first_name }} {{ settings.middle_name }} {{ settings.last_name }}</p>
+    {% if settings.last_update %}
+        <p class="text-neutral-500 dark:text-neutral-500 mt-1">
+            Updated {{ settings.last_update }}
+        </p>
+    {% endif %}
+</footer>
