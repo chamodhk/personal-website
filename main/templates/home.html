@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ settings.title }}</title>
+    {% load static %}
+    <link href="{% static 'css/output.css' %}" rel="stylesheet">
+</head>
+
+<body class="bg-neutral-900 text-neutral-100 font-sans">
+
+    <div class="max-w-4xl mx-auto px-6 py-14">
+
+        {% if settings %}
+            <h1 class="text-5xl font-light tracking-tight mb-3 text-blue-400 font-mono">
+                {{ settings.middle_name }} {{ settings.last_name }}
+            </h1>
+
+            {% if settings.subtitle %}
+                <p class="text-lg text-neutral-400 mb-6 font-mono">
+                    {{ settings.subtitle }}
+                </p>
+            {% endif %}
+
+            {% if settings.description %}
+                <p class="text-neutral-300 leading-relaxed mb-12">
+                    {{ settings.description }}
+                </p>
+            {% endif %}
+
+        {% else %}
+            <p class="text-red-500 font-semibold">No site settings configured yet.</p>
+        {% endif %}
+
+        <h2 class="text-2xl font-semibold mb-6 text-neutral-200">
+            Recent Articles
+        </h2>
+
+        {% if articles %}
+            <div class="space-y-5">
+
+                {% for article in articles %}
+                    <div class="bg-neutral-800 border border-neutral-700 rounded-lg p-5 transition hover:border-blue-500 hover:shadow-lg hover:shadow-blue-900/30">
+
+                        <h3 class="text-xl text-blue-300 font-mono mb-1">
+                            {{ article.name }}
+                        </h3>
+
+                        <small class="text-neutral-500 text-sm block mb-2">
+                            {{ article.date }}
+                        </small>
+
+                        {% if article.subtitle %}
+                            <p class="text-neutral-300 text-sm leading-relaxed">
+                                {{ article.subtitle }}
+                            </p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+
+            </div>
+        {% else %}
+            <p class="text-neutral-500">No articles yet.</p>
+        {% endif %}
+
+    </div>
+
+</body>
+</html>
