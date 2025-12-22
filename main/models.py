@@ -65,6 +65,11 @@ class SiteSettings(models.Model):
     description = models.CharField(max_length=300, blank=True)
     last_update = models.DateField(auto_now=True)
 
+    github_link = models.URLField(blank=True)
+    linkedin_link = models.URLField(blank=True)
+    resume = models.FileField(upload_to='resume/', blank=True, null=True)
+
+
     def __str__(self) -> str:
         return "Site Settings"
 
