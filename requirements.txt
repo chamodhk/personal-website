@@ -5,3 +5,4 @@ bleach==6.3.0
 pillow==11.3.0
 python-dotenv==1.1.1
 gunicorn==22.0.0
+whitenoise==6.11.0
