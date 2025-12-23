@@ -11,7 +11,7 @@ module.exports = {
         },
       },
       animation: {
-        bgmove: 'bgmove 120s infinite',
+        bgmove: 'bgmove 360s infinite',
       }
     }
   },

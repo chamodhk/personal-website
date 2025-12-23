@@ -6,3 +6,5 @@ pillow==11.3.0
 python-dotenv==1.1.1
 gunicorn==22.0.0
 whitenoise==6.11.0
+django-autoslug==1.9.9
+django-summernote==0.8.20.0

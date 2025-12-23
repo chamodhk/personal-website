@@ -12,14 +12,14 @@
         <div class="flex h-16 items-center justify-between">
 
           <!-- Logo -->
-          <a class="text-teal-400 font-semibold" href="#">
+          <a class="text-teal-400 font-semibold" href="{% url 'home' %}">
             Chamodh Nethsara
           </a>
 
           <!-- Desktop Nav -->
           <nav class="hidden md:block">
             <ul class="flex items-center gap-6 text-sm">
-              <li><a class="text-blue-400 hover:text-white transition" href="#">Home</a></li>
+              <li><a class="text-blue-400 hover:text-white transition" href="{% url 'home' %}">Home</a></li>
               <li><a class="text-blue-400 hover:text-white transition" href="#">Blog</a></li>
               <li><a class="text-blue-400 hover:text-white transition" href="#">Projects</a></li>
               <li><a class="text-blue-400 hover:text-white transition" href="#">Achievements</a></li>

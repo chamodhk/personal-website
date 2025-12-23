@@ -2,13 +2,12 @@ from django.contrib import admin
 from django.db import models
 from martor.widgets import AdminMartorWidget
 from .models import *
+from django_summernote.admin import SummernoteModelAdmin
 # Register your models here.
 
 
-class ArticleModelAdmin(admin.ModelAdmin):
-    formfield_overrides ={
-        models.TextField: {'widget': AdminMartorWidget}
-    }
+class ArticleModelAdmin(SummernoteModelAdmin):
+    summernote_fields = ('body',)
 
 
 admin.site.register(Skill)

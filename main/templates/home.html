@@ -89,9 +89,10 @@
                 {% for article in articles %}
                     <div class="p-3 rounded-lg border hover:shadow-md bg-neutral-800 
                        border-neutral-700 transition">
+                       <a href ="{% url 'detail' article.slug %}">
                         <strong class="block text-blue-300 mb-1">
-                            {{ article.name }}
-                        </strong>
+                            {{ article.title }}
+                        </strong></a>
 
                         <small class="block text-neutral-400 mb-1">
                             {{ article.date }}

@@ -7,12 +7,12 @@
               py-2 text-center text-sm">
 
     <p class="text-neutral-300">
-      © {{ settings.first_name }} {{ settings.middle_name }} {{ settings.last_name }}
+      © {{first_name }} {{ middle_name }} {{last_name }}
     </p>
 
-    {% if settings.last_update %}
+    {% if last_update_date %}
       <p class="mt-1 text-neutral-500">
-        Updated {{ settings.last_update }}
+        Updated {{ last_update_date }}
       </p>
     {% endif %}
 

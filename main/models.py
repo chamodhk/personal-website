@@ -1,5 +1,7 @@
 from django.db import models
+from django.utils.text import slugify
 from martor.models import MartorField
+from autoslug import AutoSlugField
 
 # Create your models here.
 
@@ -31,7 +33,7 @@ class Certificate(models.Model):
 
 class Project(models.Model):
     name = models.CharField(max_length=150)
-    description = MartorField()
+    description = models.TextField()
     completed_date = models.DateField(auto_now_add=True)
     article_link = models.URLField()
     github_link = models.URLField()
@@ -40,18 +42,22 @@ class Project(models.Model):
     def __str__(self) -> str:
         return self.name
 
-
 class Article(models.Model):
-    name = models.CharField(max_length=150)
+    title = models.CharField(max_length=150)
     subtitle = models.CharField(max_length=50)
-    date = models.DateField(auto_now=True)
-    body = MartorField()
+    date = models.DateTimeField()
+    slug=AutoSlugField(populate_from='title', unique_with="date__month")
+
+    body = models.TextField()
     medium_link = models.URLField(blank=True)
     github_link = models.URLField()
     youtube_link = models.URLField(blank=True)
 
+   
+
     def __str__(self):
-        return self.name
+        return self.title
+
     
 
 
