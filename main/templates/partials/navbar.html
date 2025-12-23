@@ -1,60 +1,70 @@
-<header
-  class="sticky top-0 z-50
-         pointer-events-none absolute inset-0
-         ">
+ <header class="sticky top-0 z-50 relative overflow-hidden">
 
-         
-  <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-    <div class="flex h-16 items-center justify-between">
-      <div class="flex-1 md:flex md:items-center md:gap-12">
-        <a class="block text-teal-600" href="#">
-          <span class="sr-only">Home</span>
-          <h3>Chamodh Nethsara</h3>
-        </a>
-      </div>
-      
+    <!-- Background gradient layer -->
+    <div
+      class="pointer-events-none absolute inset-0
+             bg-[linear-gradient(to_bottom,rgb(1,14,40)_0%,rgb(1,14,40)_40%,transparent_100%)]">
+    </div>
 
-      <div class="md:flex md:items-center md:gap-12">
-        <nav aria-label="Global" class="hidden md:block">
-          <ul class="flex items-center gap-6 text-sm">
-            <li>
-              <a class="text-blue-500 transition hover:text-white-500/75" href="#"> Home </a>
-            </li>
+    <!-- Navbar content -->
+    <div class="relative z-10 backdrop-blur-sm backdrop-saturate-150 bg-neutral-900/60">
+      <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
 
-            <li>
-              <a class="text-blue-500 transition hover:text-white-500/75" href="#"> Blog </a>
-            </li>
+          <!-- Logo -->
+          <a class="text-teal-400 font-semibold" href="#">
+            Chamodh Nethsara
+          </a>
 
-            <li>
-              <a class="text-blue-500 transition hover:text-white-500/75" href="#"> Projects </a>
-            </li>
+          <!-- Desktop Nav -->
+          <nav class="hidden md:block">
+            <ul class="flex items-center gap-6 text-sm">
+              <li><a class="text-blue-400 hover:text-white transition" href="#">Home</a></li>
+              <li><a class="text-blue-400 hover:text-white transition" href="#">Blog</a></li>
+              <li><a class="text-blue-400 hover:text-white transition" href="#">Projects</a></li>
+              <li><a class="text-blue-400 hover:text-white transition" href="#">Achievements</a></li>
+            </ul>
+          </nav>
 
-            <li>
-              <a class="text-blue-500 transition hover:text-white-500/75" href="#"> Achievements </a>
-            </li>
+          <!-- Mobile button -->
+          <button
+            id="menu-btn"
+            class="md:hidden rounded bg-neutral-800 p-2 text-neutral-200 hover:bg-neutral-700 transition"
+            aria-label="Toggle menu"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
+                 fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
 
-           
-          </ul>
-        </nav>
-
-        <div class="flex items-center gap-4">
-
-          <div class="block md:hidden">
-            <button class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
         </div>
       </div>
     </div>
-  </div>
-</header>
+
+    <!-- Mobile Menu -->
+    <nav
+      id="mobile-menu"
+      class="md:hidden hidden bg-neutral-900/95 border-t border-neutral-800 backdrop-blur-sm">
+      <ul class="flex flex-col gap-4 p-4 text-sm">
+        <li><a class="text-blue-400 hover:text-white" href="#">Home</a></li>
+        <li><a class="text-blue-400 hover:text-white" href="#">Blog</a></li>
+        <li><a class="text-blue-400 hover:text-white" href="#">Projects</a></li>
+        <li><a class="text-blue-400 hover:text-white" href="#">Achievements</a></li>
+      </ul>
+    </nav>
+
+  </header>
+
+ 
+
+  <!-- JS -->
+  <script>
+    const btn = document.getElementById("menu-btn");
+    const menu = document.getElementById("mobile-menu");
+
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  </script>
