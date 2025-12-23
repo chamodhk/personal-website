@@ -1,0 +1,7 @@
+Django==5.2.7
+martor==1.7.16
+Markdown==3.10
+bleach==6.3.0
+pillow==11.3.0
+python-dotenv==1.1.1
+gunicorn==22.0.0

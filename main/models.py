@@ -1,4 +1,5 @@
 from django.db import models
+from martor.models import MartorField
 
 # Create your models here.
 
@@ -30,7 +31,7 @@ class Certificate(models.Model):
 
 class Project(models.Model):
     name = models.CharField(max_length=150)
-    description = models.CharField(max_length=1000)
+    description = MartorField()
     completed_date = models.DateField(auto_now_add=True)
     article_link = models.URLField()
     github_link = models.URLField()
@@ -44,7 +45,7 @@ class Article(models.Model):
     name = models.CharField(max_length=150)
     subtitle = models.CharField(max_length=50)
     date = models.DateField(auto_now=True)
-    body = models.TextField()
+    body = MartorField()
     medium_link = models.URLField(blank=True)
     github_link = models.URLField()
     youtube_link = models.URLField(blank=True)
