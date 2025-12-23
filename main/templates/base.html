@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,7 @@
 
     {% block head %}{% endblock %}
 </head>
-<body class="bg-white text-black dark:bg-neutral-900 dark:text-neutral-100 font-sans">
+<body class="bg-neutral-900 text-neutral-100 font-sans">
     <div
     class="w-screen min-h-screen  bg-[#010e28] bg-[linear-gradient(to_bottom,_#082740_1px,_transparent_1px),_linear-gradient(to_right,_#082740_1px,_transparent_1px)] [background-size:30px_30px] bg-center overflow-x-hidden animate-bgmove">
 
@@ -33,26 +33,6 @@
 </div>
 </div>
 
-<!-- THEME SCRIPT -->
-<script>
-    const html = document.documentElement;
-    const storedTheme = localStorage.getItem("theme");
-
-    if (storedTheme === "light") html.classList.remove("dark");
-
-    const toggle = document.getElementById("theme-toggle");
-    if (toggle) {
-        toggle.addEventListener("click", () => {
-            if (html.classList.contains("dark")) {
-                html.classList.remove("dark");
-                localStorage.setItem("theme", "light");
-            } else {
-                html.classList.add("dark");
-                localStorage.setItem("theme", "dark");
-            }
-        });
-    }
-</script>
 
 </body>
 </html>

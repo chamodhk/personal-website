@@ -1,17 +1,17 @@
 <footer
-  class="border-t border-white/20 dark:border-neutral-800/50
-         bg-white/60 dark:bg-neutral-900/60
+  class="border-t border-neutral-800/50
+         bg-white/60 
          backdrop-blur-sm backdrop-saturate-150">
 
   <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8
               py-2 text-center text-sm">
 
-    <p class="text-neutral-700 dark:text-neutral-300">
+    <p class="text-neutral-300">
       © {{ settings.first_name }} {{ settings.middle_name }} {{ settings.last_name }}
     </p>
 
     {% if settings.last_update %}
-      <p class="mt-1 text-neutral-500 dark:text-neutral-500">
+      <p class="mt-1 text-neutral-500">
         Updated {{ settings.last_update }}
       </p>
     {% endif %}

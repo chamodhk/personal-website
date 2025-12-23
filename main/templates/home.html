@@ -17,13 +17,13 @@
             </h1>
 
             {% if settings.subtitle %}
-                <p class="text-lg text-neutral-600 dark:text-neutral-400 mb-3 font-mono">
+                <p class="text-neutral-400 mb-3 font-mono">
                     {{ settings.subtitle }}
                 </p>
             {% endif %}
 
             {% if settings.description %}
-                <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed mb-8 max-w-2xl mx-auto text-base">
+                <p class="text-neutral-300 leading-relaxed mb-8 max-w-2xl mx-auto text-base">
                     {{ settings.description }}
                 </p>
             {% endif %}
@@ -47,9 +47,8 @@
         
     </a>
 
-                <a class="inline-flex items-center gap-2 px-4 py-2 text-sm rounded-md border 
-        border-gray-400 bg-gray-200 hover:bg-gray-300 transition
-        dark:bg-neutral-800 dark:border-neutral-600 dark:hover:bg-neutral-700 dark:text-neutral-100"  href="{{settings.linkedin_link}}">
+                <a class="inline-flex items-center gap-2 px-4 py-2 text-sm rounded-md 
+      bg-neutral-800 border-neutral-600 hover:bg-neutral-700 text-neutral-100"  href="{{settings.linkedin_link}}">
 
 
         
@@ -63,9 +62,8 @@
 
 
               <a href="{{ settings.resume.url }}" target="_blank"
-   class="inline-flex items-center gap-2 px-4 py-2 text-sm rounded-md border 
-          border-gray-400 bg-gray-200 hover:bg-gray-300 transition
-          dark:bg-neutral-800 dark:border-neutral-600 dark:hover:bg-neutral-700 dark:text-neutral-100">
+   class="inline-flex items-center gap-2 px-4 py-2 text-sm rounded-md 
+          bg-neutral-800 border-neutral-600 hover:bg-neutral-700 text-neutral-100">
 
     <svg class="w-5 h-5 flex-none" viewBox="0 0 24 24" fill="currentColor">
         <path d="M14 2H6a2 2 0 00-2 2v16a2 
@@ -81,7 +79,7 @@
 
         <!-- ARTICLES compact -->
         <section class="pb-6">
-            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200 text-center">
+            <h2 class="text-xl font-semibold text-neutral-200 text-center">
                 Recent Articles
             </h2>
 
@@ -89,13 +87,13 @@
 
             <div class="grid grid-cols-3 gap-3 text-sm">
                 {% for article in articles %}
-                    <div class="p-3 rounded-lg border hover:shadow-md bg-gray-100 dark:bg-neutral-800 
-                        border-gray-300 dark:border-neutral-700 transition">
-                        <strong class="block text-blue-700 dark:text-blue-300 mb-1">
+                    <div class="p-3 rounded-lg border hover:shadow-md bg-neutral-800 
+                       border-neutral-700 transition">
+                        <strong class="block text-blue-300 mb-1">
                             {{ article.name }}
                         </strong>
 
-                        <small class="block text-neutral-500 dark:text-neutral-400 mb-1">
+                        <small class="block text-neutral-400 mb-1">
                             {{ article.date }}
                         </small>
 
