@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  web:
+    image: personal-website
+    container_name: personal-website
+    env_file:
+      - .env
+    expose:
+      - "8000"
