@@ -7,5 +7,5 @@ services:
     container_name: personal-website
     env_file:
       - .env
-    expose:
+    ports:
       - "127.0.0.1:8000:8000"
