@@ -12,7 +12,9 @@ services:
     volumes:
       - staticfiles:/app/staticfiles
       - media:/app/media
+      - db:/app/db.sqlite3
 
 volumes:
   staticfiles:
   media:
+  db:
