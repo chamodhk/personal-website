@@ -1,0 +1,12 @@
+services:
+  web:
+    build: .
+    container_name: personal-website-dev
+    env_file:
+      - .env.dev
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+
+    command: python manage.py runserver 0.0.0.0:8000

@@ -1,22 +1,58 @@
-<nav class="py-3 border-b border-neutral-300 dark:border-neutral-700 shadow-sm dark:shadow-neutral-900/20">
-    <div class="max-w-5xl mx-auto px-6 flex items-center justify-between">
-
-        <a href="/" class="text-lg font-mono font-semibold text-blue-700 dark:text-blue-300">
-            {{ settings.middle_name }} {{ settings.last_name }}
+<header class="sticky top-0 z-50
+         bg-white/60 dark:bg-neutral-900/60
+         backdrop-blur-sm backdrop-saturate-150
+         border-b border-white/20 dark:border-neutral-800/50 shadow-sm shadow-black/5 dark:shadow-black/20">
+  <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between">
+      <div class="flex-1 md:flex md:items-center md:gap-12">
+        <a class="block text-teal-600" href="#">
+          <span class="sr-only">Home</span>
+          <h3>Chamodh Nethsara</h3>
         </a>
+      </div>
+      
 
-        <div class="flex items-center gap-5 text-neutral-700 dark:text-neutral-300 text-sm font-medium">
-            <a href="/" class="hover:text-blue-600 dark:hover:text-blue-400">Home</a>
-            <a href="/articles/" class="hover:text-blue-600 dark:hover:text-blue-400">Articles</a>
-            <a href="/projects/" class="hover:text-blue-600 dark:hover:text-blue-400">Projects</a>
-            <a href="/contact/" class="hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
+      <div class="md:flex md:items-center md:gap-12">
+        <nav aria-label="Global" class="hidden md:block">
+          <ul class="flex items-center gap-6 text-sm">
+            <li>
+              <a class="text-blue-500 transition hover:text-white-500/75" href="#"> Home </a>
+            </li>
 
-            <button id="theme-toggle"
-                class="px-2 py-1 rounded border bg-gray-200 text-black border-gray-400
-                hover:bg-gray-300 transition
-                dark:bg-neutral-800 dark:text-neutral-100 dark:border-neutral-600 dark:hover:bg-neutral-700">
-                Theme
+            <li>
+              <a class="text-blue-500 transition hover:text-white-500/75" href="#"> Blog </a>
+            </li>
+
+            <li>
+              <a class="text-blue-500 transition hover:text-white-500/75" href="#"> Projects </a>
+            </li>
+
+            <li>
+              <a class="text-blue-500 transition hover:text-white-500/75" href="#"> Achievements </a>
+            </li>
+
+           
+          </ul>
+        </nav>
+
+        <div class="flex items-center gap-4">
+
+          <div class="block md:hidden">
+            <button class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
             </button>
+          </div>
         </div>
+      </div>
     </div>
-</nav>
+  </div>
+</header>
