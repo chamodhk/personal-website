@@ -1,6 +1,5 @@
 from django.contrib import admin
 from django.db import models
-from martor.widgets import AdminMartorWidget
 from .models import *
 from django_summernote.admin import SummernoteModelAdmin
 # Register your models here.
