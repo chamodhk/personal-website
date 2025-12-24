@@ -1,5 +1,82 @@
-db.sqlite3
+
 tailwindcss.exe
-.env
-.env.dev
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# =========================
+# Django
+# =========================
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
 staticfiles/
+
+# =========================
+# Environment / Secrets
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# Virtual Environments
+# =========================
+venv/
+.venv/
+env/
+ENV/
+
+# =========================
+# OS / Editor files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# IDEs
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# Node / Frontend (if using Tailwind, Vite, etc.)
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =========================
+# Build / Dist
+# =========================
+dist/
+build/
+*.egg-info/
+
+# =========================
+# Coverage / Testing
+# =========================
+.coverage
+htmlcov/
+pytest_cache/
+
+# =========================
+# Docker
+# =========================
+*.pid
+docker-compose.override.yml
+
+# =========================
+# Misc
+# =========================
+.cache/
