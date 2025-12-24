@@ -6,3 +6,4 @@ gunicorn==22.0.0
 whitenoise==6.11.0
 django-autoslug==1.9.9
 django-summernote==0.8.20.0
+django-taggit==6.1.0

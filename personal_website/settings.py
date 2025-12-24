@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
-    'django_summernote'
+    'django_summernote',
+    'taggit'
 ]
 
 MIDDLEWARE = [

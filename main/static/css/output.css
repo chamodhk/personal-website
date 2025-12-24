@@ -1382,6 +1382,10 @@ video {
   background-image: radial-gradient(circle at top, rgba(80,120,255,0.08), transparent 60%);
 }
 
+.bg-\[url\(\'https\:\/\/chamodh\.me\/media\/django-summernote\/2025-12-24\/b6f2be5f-4965-48cf-a7cd-9d0407f163f4\.png\'\)\] {
+  background-image: url('https://chamodh.me/media/django-summernote/2025-12-24/b6f2be5f-4965-48cf-a7cd-9d0407f163f4.png');
+}
+
 .from-transparent {
   --tw-gradient-from: transparent var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(0 0 0 / 0) var(--tw-gradient-to-position);

@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils.text import slugify
 from autoslug import AutoSlugField
+from taggit.managers import TaggableManager
+
 
 # Create your models here.
 
@@ -31,12 +33,26 @@ class Certificate(models.Model):
     
 
 class Project(models.Model):
+    PROJECT_CATEGORIES = [
+        ("academic", "Academic"),
+        ("personal", "Personal / Hobby"),
+        ("research", "Research"),
+        ("open_source", "Open Source"),
+        ("experimental", "Experimental"),
+        ("freelance", "Freelance / Client"),
+        ("learning", "Learning / Practice"),
+    ]
+
+
     name = models.CharField(max_length=150)
     description = models.TextField()
     completed_date = models.DateField(auto_now_add=True)
+    category = models.CharField(max_length=30, choices=PROJECT_CATEGORIES, default="personal")
     article_link = models.URLField()
     github_link = models.URLField()
     skills = models.ManyToManyField(Skill, related_name="projects")
+
+    tags = TaggableManager(blank=True)
 
     def __str__(self) -> str:
         return self.name
@@ -47,10 +63,14 @@ class Article(models.Model):
     date = models.DateTimeField()
     slug=AutoSlugField(populate_from='title', unique_with="date__month")
 
+
     body = models.TextField()
+
+    tags = TaggableManager(blank=True)
     medium_link = models.URLField(blank=True)
     github_link = models.URLField(blank=True)
     youtube_link = models.URLField(blank=True)
+
 
     view_count = models.IntegerField(default=0)
     claps = models.IntegerField(default=0)

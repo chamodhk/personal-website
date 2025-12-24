@@ -19,12 +19,18 @@ def home(request):
 def blog_home(request):
     articles = Article.objects.all().order_by('-date')
     query = request.GET.get("q", "")
+    tag_query = request.GET.get("tag","")
 
     if query:
         articles = articles.filter(
             Q(title__icontains=query) |
             Q(subtitle__icontains=query) |
             Q(body__icontains=query)
+        )
+
+    if tag_query:
+        articles = articles.filter(
+            tags__name__in=[tag_query]
         )
 
     paginator = Paginator(articles,5)
