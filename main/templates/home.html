@@ -78,33 +78,223 @@
         </section>
 
         <!-- ARTICLES compact -->
-        <section class="pb-6">
-            <h2 class="text-xl font-semibold text-neutral-200 text-center">
-                Recent Articles
-            </h2>
+        <!-- RECENT ARTICLES -->
 
-            <div class="h-1 w-40 mx-auto my-4 bg-gradient-to-r from-transparent via-blue-500 to-transparent rounded"></div>
+        <section class="p-1">
+  <div
+    x-data="carousel()"
+    x-init="init()"
+    @mouseenter="pause()"
+    @mouseleave="start()"
+    @keydown.arrow-left.window="prev()"
+    @keydown.arrow-right.window="next()"
+    class="max-w-3xl mx-auto relative group outline-none"
+    tabindex="0"
+  >
 
-            <div class="grid grid-cols-3 gap-3 text-sm">
-                {% for article in articles %}
-                    <div class="p-3 rounded-lg border hover:shadow-md bg-neutral-800 
-                       border-neutral-700 transition">
-                       <a href ="{% url 'detail' article.slug %}">
-                        <strong class="block text-blue-300 mb-1">
-                            {{ article.title }}
-                        </strong></a>
+    <!-- SLIDES -->
+    <div class="relative overflow-hidden rounded-xl shadow-xl shadow-black/30">
+      <div
+        class="flex transition-transform duration-700 ease-in-out"
+        :style="`transform: translateX(-${active * 100}%)`"
+      >
 
-                        <small class="block text-neutral-400 mb-1">
-                            {{ article.date }}
-                        </small>
+<!-- Slide 1 : Blog -->
+<div
+  data-slide
+  class="min-w-full h-56 flex items-center justify-center
+         bg-gradient-to-br from-blue-600 to-blue-800
+         text-white text-center"
+>
+  <div class="max-w-md px-6">
+    <h3 class="text-xl font-semibold mb-2">
+      Read the Blog
+    </h3>
 
-                        {{ article.subtitle }}
-                    </div>
-                {% endfor %}
-            </div>
+    <p class="text-blue-100 text-sm mb-4 leading-relaxed">
+      Thoughts on technology, systems, and learning — written slowly and intentionally.
+    </p>
+
+    <div class="flex justify-center gap-3">
+      <a href="/blog"
+         class="inline-flex items-center px-4 py-2 rounded-md
+                bg-white text-blue-700 text-sm font-medium
+                hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-white/60 transition">
+        View Articles
+      </a>
+
+      <a href="/blog/latest"
+         class="inline-flex items-center px-4 py-2 rounded-md
+                border border-white/60 text-white text-sm
+                hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/60 transition">
+        Latest
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 2 : Projects -->
+<div
+  data-slide
+  class="min-w-full h-56 flex items-center justify-center
+         bg-gradient-to-br from-blue-600 to-blue-800
+         text-white text-center"
+>
+  <div class="max-w-md px-6">
+    <h3 class="text-xl font-semibold mb-2">
+      Explore Projects
+    </h3>
+
+    <p class="text-emerald-100 text-sm mb-4 leading-relaxed">
+      Engineering, software, and experimental builds — from processors to creative systems.
+    </p>
+
+    <div class="flex justify-center gap-3">
+      <a href="/projects"
+         class="inline-flex items-center px-4 py-2 rounded-md
+                bg-white text-emerald-700 text-sm font-medium
+                hover:bg-emerald-100 focus:outline-none focus:ring-2 focus:ring-white/60 transition">
+        Projects
+      </a>
+
+      <a href="https://github.com/yourusername"
+         target="_blank"
+         class="inline-flex items-center px-4 py-2 rounded-md
+                border border-white/60 text-white text-sm
+                hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/60 transition">
+        GitHub
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 3 : Achievements -->
+<div
+  data-slide
+  class="min-w-full h-56 flex items-center justify-center
+         bg-gradient-to-br from-blue-600 to-blue-800
+         text-white text-center"
+>
+  <div class="max-w-md px-6">
+    <h3 class="text-xl font-semibold mb-2">
+      Achievements
+    </h3>
+
+    <p class="text-purple-100 text-sm mb-4 leading-relaxed">
+      Academic milestones, competitions, and certifications that shaped my journey.
+    </p>
+
+    <div class="flex justify-center gap-3">
+      <a href="/achievements"
+         class="inline-flex items-center px-4 py-2 rounded-md
+                bg-white text-purple-700 text-sm font-medium
+                hover:bg-purple-100 focus:outline-none focus:ring-2 focus:ring-white/60 transition">
+        Highlights
+      </a>
+
+      <a href="/resume"
+         class="inline-flex items-center px-4 py-2 rounded-md
+                border border-white/60 text-white text-sm
+                hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/60 transition">
+        Resume
+      </a>
+    </div>
+  </div>
+</div>
 
 
-        </section>
+
+      </div>
+    </div>
+
+    <!-- PREV -->
+    <button
+      @click="prev()"
+      class="absolute top-1/2 left-4 -translate-y-1/2
+             bg-black/40 hover:bg-black/60 backdrop-blur
+             rounded-full p-3 transition opacity-0 group-hover:opacity-100"
+      aria-label="Previous slide"
+    >
+      <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+
+    <!-- NEXT -->
+    <button
+      @click="next()"
+      class="absolute top-1/2 right-4 -translate-y-1/2
+             bg-black/40 hover:bg-black/60 backdrop-blur
+             rounded-full p-3 transition opacity-0 group-hover:opacity-100"
+      aria-label="Next slide"
+    >
+      <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+
+    <!-- DOTS -->
+    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+      <template x-for="i in slides" :key="i">
+        <button
+          @click="go(i - 1)"
+          class="w-3 h-3 rounded-full transition-all"
+          :class="active === i - 1 ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white'"
+        ></button>
+      </template>
+    </div>
+
+  </div>
+</section>
+
+<!-- Alpine -->
+<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+<script>
+  function carousel() {
+    return {
+      active: 0,
+      slides: 0,
+      timer: null,
+
+      init() {
+        this.slides = this.$el.querySelectorAll('[data-slide]').length
+        this.start()
+      },
+
+      start() {
+        this.timer = setInterval(() => {
+          this.next()
+        }, 3500)
+      },
+
+      pause() {
+        clearInterval(this.timer)
+      },
+
+      next() {
+        this.pause()
+        this.active = (this.active + 1) % this.slides
+        this.start()
+      },
+
+      prev() {
+        this.pause()
+        this.active = (this.active - 1 + this.slides) % this.slides
+        this.start()
+      },
+
+      go(index) {
+        this.pause()
+        this.active = index
+        this.start()
+      }
+    }
+  }
+</script>
+
 
 {% endblock %}
 

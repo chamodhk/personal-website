@@ -20,7 +20,7 @@
           <nav class="hidden md:block">
             <ul class="flex items-center gap-6 text-sm">
               <li><a class="text-blue-400 hover:text-white transition" href="{% url 'home' %}">Home</a></li>
-              <li><a class="text-blue-400 hover:text-white transition" href="#">Blog</a></li>
+              <li><a class="text-blue-400 hover:text-white transition" href="{% url 'blog_home' %}">Blog</a></li>
               <li><a class="text-blue-400 hover:text-white transition" href="#">Projects</a></li>
               <li><a class="text-blue-400 hover:text-white transition" href="#">Achievements</a></li>
             </ul>
@@ -48,10 +48,10 @@
       id="mobile-menu"
       class="md:hidden hidden bg-neutral-900/95 border-t border-neutral-800 backdrop-blur-sm">
       <ul class="flex flex-col gap-4 p-4 text-sm">
-        <li><a class="text-blue-400 hover:text-white" href="#">Home</a></li>
-        <li><a class="text-blue-400 hover:text-white" href="#">Blog</a></li>
-        <li><a class="text-blue-400 hover:text-white" href="#">Projects</a></li>
-        <li><a class="text-blue-400 hover:text-white" href="#">Achievements</a></li>
+        <li><a class="text-blue-400 hover:text-white transition" href="{% url 'home' %}">Home</a></li>
+              <li><a class="text-blue-400 hover:text-white transition" href="{% url 'blog_home' %}">Blog</a></li>
+              <li><a class="text-blue-400 hover:text-white transition" href="#">Projects</a></li>
+              <li><a class="text-blue-400 hover:text-white transition" href="#">Achievements</a></li>
       </ul>
     </nav>
 

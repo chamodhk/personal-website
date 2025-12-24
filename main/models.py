@@ -50,8 +50,11 @@ class Article(models.Model):
 
     body = models.TextField()
     medium_link = models.URLField(blank=True)
-    github_link = models.URLField()
+    github_link = models.URLField(blank=True)
     youtube_link = models.URLField(blank=True)
+
+    view_count = models.IntegerField(default=0)
+    claps = models.IntegerField(default=0)
 
    
 
