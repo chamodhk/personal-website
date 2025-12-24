@@ -45,3 +45,11 @@ def get_article(request, article_slug):
     recent_articles=Article.objects.order_by('-date')[:4]
     context = {'article': article, 'recents':recent_articles}
     return render(request,"post.html",context)
+
+
+def projects(request):
+    return render(request, "projects.html")
+
+
+def achievements(request):
+    return render(request, "achievements.html")

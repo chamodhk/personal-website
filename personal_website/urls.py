@@ -26,6 +26,8 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('blog/', views.blog_home, name="blog_home"),
     path('blog/<slug:article_slug>/', views.get_article, name='detail'),
+    path('projects/', views.projects, name="projects"),
+    path('achievements/',views.achievements,name="achievements"),
     path('summernote/', include('django_summernote.urls'))
 ]
 
