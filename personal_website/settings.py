@@ -155,3 +155,5 @@ if not DEBUG:
     SECURE_SSL_REDIRECT = True
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
+
+SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"
