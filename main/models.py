@@ -16,6 +16,11 @@ class Skill(models.Model):
     ]
     name = models.CharField(max_length=50)
     type = models.CharField(max_length=20, choices=SKILL_TYPES)
+    icon_slug = models.CharField(
+        max_length=50,
+        help_text="Simple Icon's icon slug",
+        blank=True
+    )
 
     def __str__(self) -> str:
         return self.name
@@ -46,13 +51,35 @@ class Project(models.Model):
 
     name = models.CharField(max_length=150)
     description = models.TextField()
-    completed_date = models.DateField(auto_now_add=True)
+    completed_date = models.DateField()
     category = models.CharField(max_length=30, choices=PROJECT_CATEGORIES, default="personal")
-    article_link = models.URLField()
-    github_link = models.URLField()
+    article_link = models.URLField(blank=True)
+    github_link = models.URLField(blank=True)
     skills = models.ManyToManyField(Skill, related_name="projects")
 
     tags = TaggableManager(blank=True)
+
+    thumbnail = models.ImageField(
+        upload_to="project_thumbnails/",
+        blank=True,
+        null=True,
+        help_text="Project cover image"
+    )
+
+    # for SEO
+
+    meta_title = models.CharField(
+        max_length=60,
+        blank= True,
+        help_text="Leave empty to use article title"
+    )
+
+    meta_description = models.CharField(
+        max_length=160,
+        blank=True,
+        help_text="short summary for Google search results"
+    )
+
 
     def __str__(self) -> str:
         return self.name
@@ -95,6 +122,8 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+    
+
 
     
 

@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
-from .models import SiteSettings, Skill, Certificate, Article
+from .models import SiteSettings,Article, Project, Skill
 from django.db.models import Q
 
 
@@ -48,7 +48,12 @@ def get_article(request, article_slug):
 
 
 def projects(request):
-    return render(request, "projects.html")
+    projects = Project.objects.all()
+    skills = Skill.objects.all()
+    return render(request, "projects.html",context={
+        "projects":projects,
+        "skills":skills
+    })
 
 
 def achievements(request):
