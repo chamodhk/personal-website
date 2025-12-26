@@ -75,6 +75,22 @@ class Article(models.Model):
     view_count = models.IntegerField(default=0)
     claps = models.IntegerField(default=0)
 
+
+    # for SEO
+
+    meta_title = models.CharField(
+        max_length=60,
+        blank= True,
+        help_text="Leave empty to use article title"
+    )
+
+    meta_description = models.CharField(
+        max_length=160,
+        blank=True,
+        help_text="short summary for Google search results"
+    )
+
+
    
 
     def __str__(self):

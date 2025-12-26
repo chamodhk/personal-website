@@ -1,5 +1,35 @@
 {% extends "base.html" %}
 {% load static %}
+{% block meta %}
+  <title> 
+      {% if article.meta_title %}
+        {{ article.meta_title }}
+      {% else %}
+        {{ article.title }}
+      {% endif %}
+  </title>
+
+  <meta name="description"
+    content="{% if article.meta_description %}
+                {{ article.meta_description }}
+             {% else %}
+                {{ article.content|striptags|truncatechars:150}}
+              {% endif %}">
+
+
+
+    <meta property="og:title"
+      content="{{ article.meta_title|default:article.title }}">
+<meta property="og:description"
+      content="{{ article.meta_description }}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+
+
+
+  
+
+{% endblock %}
 
 {% block title %}{{ article.title }} · Blog{% endblock %}
 

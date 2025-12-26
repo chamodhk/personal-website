@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="canonical" href="{{ request.build_absolute_uri }}">
+
+    {% block meta %} {% endblock %}
 
     <title>{% block title %}{{ settings.title }}{% endblock %}</title>
 
