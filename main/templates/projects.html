@@ -2,7 +2,7 @@
 {% block title %} Projects / Chamodh Nethsara {% endblock %}
 {% block content %}
 
-<section class="min-h-screen w-full  md:px-8 xl:px-20 text-white bg-primary flex items-center">
+<section class="min-h-screen w-full  md:px-8 xl:px-20 text-white bg-[rgb(1,14,40)] py-16y flex items-center">
   <div class="flex container flex-col md:flex-row items-center md:items-start gap-16 w-full">
     <!-- Left Side -->
     <div class="w-full md:w-1/2 relative p-3 sm:px-28 md:p-0">
@@ -26,7 +26,7 @@
         maintainable code and intuitive user experiences.
       </p>
       <span class="py-4 px-2 space-x-2 rounded-lg bg-secondary shadow-lg">
-  <button class="rounded-lg px-4 py-2 bg-blue-500 text-white transition-all duration-300">
+  <button class="rounded-md px-4 py-2 bg-blue-500 text-white transition-all duration-300">
     Skills
   </button>
   <button class="rounded-lg px-4 py-2 bg-transparent text-gray-300 transition-all duration-300">
@@ -37,7 +37,7 @@
 
     <!-- Right Side (Static Icons Grid) -->
     <div class="w-full md:w-1/2 flex justify-center items-center">
-      <div class="grid grid-cols-3 md:grid-cols-4 gap-4">
+      <div class="grid grid-cols-3 md:grid-cols-5 gap-4">
         <!-- Static Icons -->
          {% for skill in skills %}
         <div class="text-center">
@@ -59,7 +59,16 @@
   </div>
 </section>
 
-
+<!-- Projects Title Divider -->
+<div class="bg-[rgb(1,14,40)] py-16">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex items-center justify-center gap-4">
+      <div class="flex-1 h-[2px] bg-gradient-to-r from-transparent to-neutral-600"></div>
+      <h2 class="text-4xl md:text-5xl font-bold text-white tracking-wide">PROJECTS</h2>
+      <div class="flex-1 h-[2px] bg-gradient-to-l from-transparent to-neutral-600"></div>
+    </div>
+  </div>
+</div>
 
 <div class="bg-[rgb(1,14,40)]">
   {% for project in projects %}
@@ -73,20 +82,21 @@
                border border-neutral-700">
 
         <!-- LEFT: CONTENT -->
-        <div class="flex-1 px-6 py-8 lg:p-12 bg-neutral-900/80 backdrop-blur">
+        <div class="flex-1 px-6 py-4 lg:p-6 bg-sky backdrop-blur">
           <h3 class="text-2xl font-bold text-white sm:text-3xl mb-3">
             {{ project.name }}
           </h3>
 
           <h4>Completed on {{ project.completed_date|date }} </h4>
+          <h5>Category: {{project.category|title}}</h5>
           
 
           <div class="flex flex-wrap gap-3 py-6">
   {% for skill in project.skills.all %}
     <div
-      class="w-10 h-10 flex items-center justify-center
-             rounded-lg bg-neutral-800
-             border border-neutral-700
+      class="w-7 h-7 flex items-center justify-center
+             rounded-lg bg-sky-800
+             border border-sky-700
              shadow-sm
              transition-all duration-300
              hover:scale-110 hover:border-neutral-500"
@@ -95,7 +105,7 @@
       <img
         src="https://cdn.simpleicons.org/{{ skill.icon_slug }}/white"
         alt="{{ skill.name }}"
-        class="w-5 h-5 opacity-90"
+        class="w-4 h-4 opacity-90"
       />
     </div>
   {% endfor %}
@@ -103,9 +113,84 @@
           </p>
 
           <p class="text-neutral-200 leading-relaxed mb-6">
-            {{ project.description|striptags|truncatechars:260|safe }}
+            {{ project.description|striptags|safe }}
           </p>
+
+
+          <div class="flex flex-wrap gap-4 mt-6">
+  {% if project.article_link %}
+    <a
+      href="{{ project.article_link }}"
+      target="_blank"
+      class="inline-flex items-center gap-2
+             px-4 py-2
+             rounded-lg
+             border border-neutral-600
+             text-neutral-200
+             bg-neutral-800/60
+             hover:bg-neutral-700
+             hover:border-neutral-400
+             transition"
+    >
+      <!-- Article icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+           viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M19 11H5m14-4H5m14 8H5m2-6h.01M7 15h.01" />
+      </svg>
+      <span>Read Article</span>
+    </a>
+  {% endif %}
+
+  {% if project.github_link %}
+    <a
+      href="{{ project.github_link }}"
+      target="_blank"
+      class="inline-flex items-center gap-2
+             px-2 py-2
+             rounded-lg
+             border border-neutral-600
+             text-neutral-200
+             bg-neutral-800/60
+             hover:bg-neutral-700
+             hover:border-neutral-400
+             transition"
+    >
+      <!-- GitHub icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor"
+           viewBox="0 0 24 24">
+        <path d="M12 .5C5.73.5.5 5.73.5 12
+                 c0 5.08 3.29 9.38 7.86 10.9
+                 .57.1.78-.25.78-.55v-2.02
+                 c-3.2.7-3.88-1.54-3.88-1.54
+                 -.53-1.34-1.3-1.7-1.3-1.7
+                 -1.06-.72.08-.7.08-.7
+                 1.17.08 1.79 1.2 1.79 1.2
+                 1.04 1.78 2.73 1.27 3.4.97
+                 .1-.75.4-1.27.72-1.56
+                 -2.55-.29-5.23-1.28-5.23-5.7
+                 0-1.26.45-2.29 1.2-3.1
+                 -.12-.3-.52-1.52.11-3.18
+                 0 0 .98-.31 3.2 1.18
+                 .93-.26 1.93-.39 2.92-.39
+                 .99 0 1.99.13 2.92.39
+                 2.22-1.49 3.2-1.18 3.2-1.18
+                 .63 1.66.23 2.88.11 3.18
+                 .75.81 1.2 1.84 1.2 3.1
+                 0 4.43-2.69 5.4-5.25 5.69
+                 .41.35.77 1.05.77 2.12v3.14
+                 c0 .3.2.66.79.55
+                 C20.71 21.38 24 17.08 24 12
+                 24 5.73 18.77.5 12 .5z"/>
+      </svg>
+      <span>GitHub</span>
+    </a>
+  {% endif %}
+</div>
+
         </div>
+
+        
 
         <!-- RIGHT: BACKGROUND IMAGE WITH OVERLAY -->
         {% if project.thumbnail %}
@@ -123,6 +208,8 @@
           </div>
         {% endif %}
 
+        
+
 
       </div>
 
@@ -132,4 +219,3 @@
 </div>
 
 {% endblock %}
-

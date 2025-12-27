@@ -9,10 +9,10 @@ from django.db.models import Q
 
 def home(request):
     settings = SiteSettings.objects.first()
-    articles = Article.objects.order_by('-date')[:3]
+    article = Article.objects.order_by('-date')[0]
     return render(request, "home.html", {
         "settings": settings,
-        "articles":articles
+        "article":article
     })
 
 
