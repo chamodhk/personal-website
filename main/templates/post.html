@@ -32,6 +32,7 @@
 {% endblock %}
 
 {% block title %}{{ article.title }} · Blog{% endblock %}
+{% block css %}<link rel="stylesheet" href="{% static 'css/summernote-content.css' %}">{% endblock %}
 
 {% block content %}
 
@@ -101,17 +102,9 @@
 
       <!-- ARTICLE BODY -->
       <article class="w-full md:w-3/4">
-        <div
-          class="prose prose-invert max-w-none
-                 prose-p:text-neutral-300
-                 prose-headings:text-neutral-100
-                 prose-a:text-blue-400 hover:prose-a:text-blue-300
-                 prose-code:bg-neutral-800 prose-code:px-1 prose-code:rounded
-                 prose-blockquote:border-l-blue-500
-                 prose-blockquote:text-neutral-300"
-        >
-          {{ article.body|safe }}
-        </div>
+        <div class="summernote-content">
+  {{ article.body|safe }}
+</div>
       </article>
 
       <!-- SIDEBAR -->
